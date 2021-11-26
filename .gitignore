@@ -1,0 +1,4 @@
+*.lnk
+*.code-workspace
+template.c
+Incomplete/
