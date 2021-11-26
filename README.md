@@ -13,6 +13,7 @@ My solutions to LeetCode Problems
 | 28   | Implement strStr()                        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0028_ImplementStrStr.c)             | Easy       |
 | 35   | Search Insert Position                    | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0035_SearchInsertPosition.c)        | Easy       |
 | 50   | Pow(x, n)                                 | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0050_PowXN.c)                       | Medium     |
+| 58   | Length of Last Word                       | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0058_LengthLastWord.c)              | Easy       |
 | 70   | Climbing Stairs                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0070_ClimbingStairs.c)              | Easy       |
 | 167  | Two Sum II - Input Array Is Sorted        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                    | Easy       |
 | 344  | Reverse String                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0344_ReverseString.c)               | Easy       |
