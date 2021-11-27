@@ -18,5 +18,6 @@ My solutions to LeetCode Problems
 | 167  | Two Sum II - Input Array Is Sorted        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                    | Easy       |
 | 344  | Reverse String                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0344_ReverseString.c)               | Easy       |
 | 509  | Fibonacci Number                          | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0509_FibonacciNumber.c)             | Easy       |
+| 520  | Detect Capital                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0520_DetectCapital.c)               | Easy       |
 | 650  | 2 Keys Keyboard                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0650_2KeysKeyboard.c)               | Medium     |
 | 1351 | Count Negative Numbers in a Sorted Matrix | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/1351_CountNegativeSortedMatrix.c)   | Easy       |
