@@ -2,3 +2,7 @@
 *.code-workspace
 template.c
 Incomplete/
+CMakeLists.txt
+build/
+.vscode
+main.c
