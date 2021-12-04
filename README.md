@@ -15,6 +15,7 @@ My solutions to LeetCode Problems
 | 50   | Pow(x, n)                                 | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0050_PowXN.c)                       | Medium     |
 | 58   | Length of Last Word                       | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0058_LengthLastWord.c)              | Easy       |
 | 70   | Climbing Stairs                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0070_ClimbingStairs.c)              | Easy       |
+| 73   | Set Matrix Zeroes                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0073_SetMatrixZeroes.c)             | Medium     |
 | 167  | Two Sum II - Input Array Is Sorted        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                    | Easy       |
 | 344  | Reverse String                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0344_ReverseString.c)               | Easy       |
 | 509  | Fibonacci Number                          | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0509_FibonacciNumber.c)             | Easy       |
