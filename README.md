@@ -17,6 +17,7 @@ My solutions to LeetCode Problems
 | 70   | Climbing Stairs                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0070_ClimbingStairs.c)              | Easy       |
 | 73   | Set Matrix Zeroes                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0073_SetMatrixZeroes.c)             | Medium     |
 | 167  | Two Sum II - Input Array Is Sorted        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                    | Easy       |
+| 217  | Contains Duplicate                        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0217_ContainsDuplicate.c)           | Easy       |
 | 344  | Reverse String                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0344_ReverseString.c)               | Easy       |
 | 509  | Fibonacci Number                          | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0509_FibonacciNumber.c)             | Easy       |
 | 520  | Detect Capital                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0520_DetectCapital.c)               | Easy       |
