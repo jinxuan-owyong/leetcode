@@ -24,4 +24,5 @@ My solutions to LeetCode Problems
 | 520  | Detect Capital                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0520_DetectCapital.c)               | Easy       |
 | 650  | 2 Keys Keyboard                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0650_2KeysKeyboard.c)               | Medium     |
 | 1051 | Height Checker                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/1051_HeightChecker.c)               | Easy       |
+| 1313 | Decompress Run-Length Encoded List        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/1313_DecompressRLEList.c)           | Easy       |
 | 1351 | Count Negative Numbers in a Sorted Matrix | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/1351_CountNegativeSortedMatrix.c)   | Easy       |
