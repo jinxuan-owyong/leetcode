@@ -12,6 +12,7 @@ My solutions to LeetCode Problems
 | 27   | Remove Element                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0027_RemoveElement.c)               | Easy       |
 | 28   | Implement strStr()                        | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0028_ImplementStrStr.c)             | Easy       |
 | 35   | Search Insert Position                    | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0035_SearchInsertPosition.c)        | Easy       |
+| 48   | Rotate Image                              | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0048_RotateImage.c)                 | Medium     |
 | 50   | Pow(x, n)                                 | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0050_PowXN.c)                       | Medium     |
 | 58   | Length of Last Word                       | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0058_LengthLastWord.c)              | Easy       |
 | 70   | Climbing Stairs                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0070_ClimbingStairs.c)              | Easy       |
