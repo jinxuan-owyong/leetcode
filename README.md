@@ -7,6 +7,7 @@ My solutions to LeetCode Problems
 | 1    | Two Sum                                   | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0001_TwoSum.c)                      | Easy       |
 | 7    | Reverse Integer                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0007_ReverseInteger.c)              | Medium     |
 | 20   | Valid Parentheses                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0020_ValidParentheses.c)            | Easy       |
+| 22   | Generate Parentheses                      | [C++](https://github.com/jinxuan-owyong/leetcode/blob/master/cpp/0022_GenerateParantheses.cpp)   | Medium     |
 | 24   | Swap Nodes in Pairs                       | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0024_SwapNodesInPairs.c)            | Medium     |
 | 26   | Remove Duplicates from Sorted Array       | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0026_RemoveDuplicatesSortedArray.c) | Easy       |
 | 27   | Remove Element                            | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0027_RemoveElement.c)               | Easy       |
