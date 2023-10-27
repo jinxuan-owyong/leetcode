@@ -22,6 +22,7 @@ My solutions to LeetCode Problems
 | 88   | Merge Sorted Array                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0088_MergeSortedArray.c)                           | Easy       |
 | 167  | Two Sum II - Input Array Is Sorted         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                                   | Easy       |
 | 217  | Contains Duplicate                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0217_ContainsDuplicate.c)                          | Easy       |
+| 338  | Counting Bits                              | [C++](https://github.com/jinxuan-owyong/leetcode/blob/master/cpp/0338_CountingBits.cpp)                         | Easy       |
 | 344  | Reverse String                             | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0344_ReverseString.c)                              | Easy       |
 | 509  | Fibonacci Number                           | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0509_FibonacciNumber.c)                            | Easy       |
 | 520  | Detect Capital                             | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0520_DetectCapital.c)                              | Easy       |
