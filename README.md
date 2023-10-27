@@ -20,6 +20,7 @@ My solutions to LeetCode Problems
 | 73   | Set Matrix Zeroes                          | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0073_SetMatrixZeroes.c)                            | Medium     |
 | 74   | Search a 2D Matrix                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0074_Search2DMatrix.c)                             | Medium     |
 | 88   | Merge Sorted Array                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0088_MergeSortedArray.c)                           | Easy       |
+| 118  | Pascals Triangle                           | [C++](https://github.com/jinxuan-owyong/leetcode/blob/master/cpp/0118_PascalsTriangle.cpp)                      | Easy       |
 | 167  | Two Sum II - Input Array Is Sorted         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0167_TwoSumII.c)                                   | Easy       |
 | 217  | Contains Duplicate                         | [C](https://github.com/jinxuan-owyong/leetcode/blob/master/c/0217_ContainsDuplicate.c)                          | Easy       |
 | 338  | Counting Bits                              | [C++](https://github.com/jinxuan-owyong/leetcode/blob/master/cpp/0338_CountingBits.cpp)                         | Easy       |
