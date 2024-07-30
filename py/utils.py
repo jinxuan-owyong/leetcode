@@ -1,0 +1,94 @@
+from classes import Node, ListNode, TreeNode
+from typing import Optional, List
+from collections import deque
+
+
+def toGraph(adjList: List) -> Node:
+    nodes = [Node(i + 1) for i in range(len(adjList))]
+    for i, neighbors in enumerate(adjList):
+        nodes[i].neighbors = [nodes[j-1] for j in neighbors]
+    return nodes[0] if nodes else None
+
+
+def printGraph(s: Optional[Node]):
+    if not s:
+        print()
+        return
+    seen = set()
+    frontier = deque()
+    frontier.append(s)
+    while frontier:
+        curr: Node = frontier.popleft()
+        if curr and curr.val in seen:
+            continue
+        seen.add(curr.val)
+        frontier.extend(curr.neighbors)
+        print(curr.val, [n.val for n in curr.neighbors])
+
+
+def toLinkedList(nums: List[int]) -> ListNode:
+    # returns the head
+    prev = None
+    for n in nums[::-1]:
+        prev = ListNode(n, prev)
+    return prev
+
+
+def getNode(nums: Optional[ListNode], i: int) -> Optional[ListNode]:
+    if i == -1:
+        return None
+    for _ in range(i):
+        nums = nums.next
+    return nums
+
+
+def getTail(nums: Optional[ListNode]) -> Optional[ListNode]:
+    while nums.next:
+        nums = nums.next
+    return nums
+
+
+def printLinkedList(nums: Optional[ListNode]) -> None:
+    while nums:
+        print(nums.val, end=' ')
+        nums = nums.next
+    print()
+
+
+def toTree(nodes: List[int]) -> Optional[TreeNode]:
+    if (not nodes):
+        return None
+    nodes = [None if val == None else TreeNode(int(val)) for val in nodes]
+    kids = nodes[::-1]
+    root = kids.pop()
+    for node in nodes:
+        if node:
+            if kids:
+                node.left = kids.pop()
+            if kids:
+                node.right = kids.pop()
+    return root
+    # root = TreeNode(nodes[0])
+    # curr: deque[TreeNode] = deque()
+    # next: deque[TreeNode] = deque()
+    # curr.append(root)
+    # for x in nodes[1:]:
+    #     if len(curr) == 0:
+    #         curr = next
+    #         next = deque()
+    #     if not curr[0].left:
+    #         curr[0].left = TreeNode(x)
+    #         next.append(curr[0].left)
+    #     elif not curr[0].right:
+    #         curr[0].right = TreeNode(x)
+    #         next.append(curr[0].right)
+    #         curr.popleft()
+    # return root
+
+
+def printTree(node: Optional[TreeNode]):
+    if not node:
+        return
+    printTree(node.left)
+    print(node.val, end=' ')
+    printTree(node.right)
