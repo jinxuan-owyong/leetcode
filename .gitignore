@@ -1,8 +1,9 @@
 *.lnk
 *.code-workspace
 template.c
-Incomplete/
+incomplete/
 CMakeLists.txt
 build/
 .vscode
 main.c
+py/__pycache__/
