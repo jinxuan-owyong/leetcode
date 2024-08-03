@@ -52,13 +52,17 @@ def addEntry(num, name, diff, ext):
             problemFileName = f'{num:04}_{problemNameToFileName(name)}.{ext}'
             f.write(''.join(lines))
 
-    # copy template file
-    if problemFileName:
-        with open("py/template.py") as f:
-            lines = f.readlines()
+    match ext:
+        case "py":
+            # copy template file
+            with open("py/template.py") as f:
+                lines = f.readlines()
+                with open(f'{ext}/{problemFileName}', 'w+') as f1:
+                    f1.write(f'# {num}. {name}\n')
+                    f1.writelines(lines)
+        case "js":
             with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                f1.write(f'# {num}. {name}\n')
-                f1.writelines(lines)
+                f1.write(f'// {num}. {name}\n')
 
 
 if __name__ == "__main__":
