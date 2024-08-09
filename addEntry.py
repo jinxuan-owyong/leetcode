@@ -8,7 +8,7 @@ def problemNameToFileName(s: str):
 
 def problemNameToURL(s: str) -> str:
     s = re.sub(r"[^\w ]", "", s.lower())
-    s = re.sub(" ", "-", s.lower())
+    s = re.sub(r"\s+", "-", s.lower())
     return f"https://leetcode.com/problems/{s}/description/"
 
 
