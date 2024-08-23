@@ -22,6 +22,8 @@ def fileExtensionToName(ext):
             return 'Python'
         case 'js':
             return 'JavaScript'
+        case 'sql':
+            return 'SQL'
         case _:
             raise Exception('Unknown file extension')
 
@@ -63,6 +65,10 @@ def addEntry(num, name, diff, ext):
         case "js":
             with open(f'{ext}/{problemFileName}', 'w+') as f1:
                 f1.write(f'// {num}. {name}\n')
+        case "sql":
+            with open(f'{ext}/{problemFileName}', 'w+') as f1:
+                f1.write(f'-- {num}. {name}\n')
+
 
 
 if __name__ == "__main__":
