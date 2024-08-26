@@ -7,8 +7,9 @@ def problemNameToFileName(s: str):
 
 
 def problemNameToURL(s: str) -> str:
-    s = re.sub(r"[^\w ]", "", s.lower())
-    s = re.sub(r"\s+", "-", s.lower())
+    s = re.sub(r"-", " ", s.lower())
+    s = re.sub(r"[^\w ]", "", s)
+    s = re.sub(r"\s+", "-", s)
     return f"https://leetcode.com/problems/{s}/description/"
 
 
@@ -68,7 +69,6 @@ def addEntry(num, name, diff, ext):
         case "sql":
             with open(f'{ext}/{problemFileName}', 'w+') as f1:
                 f1.write(f'-- {num}. {name}\n')
-
 
 
 if __name__ == "__main__":
