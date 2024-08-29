@@ -29,6 +29,21 @@ def fileExtensionToName(ext):
             raise Exception('Unknown file extension')
 
 
+def getDifficultyString(diff: str) -> str:
+    if diff.lower() in {"easy", "medium", "hard"}:
+        return diff.capitalize()
+
+    match diff.lower():
+        case "e":
+            return "Easy"
+        case "m":
+            return "Medium"
+        case "h":
+            return "Hard"
+        case _:
+            raise Exception("Invalid difficulty")
+
+
 def addEntry(num, name, diff, ext):
     FILE_NAME = 'README.md'
     # 0-based index
@@ -74,6 +89,6 @@ def addEntry(num, name, diff, ext):
 if __name__ == "__main__":
     problem = input('Problem: ').strip()
     num, name = problem.split('. ')
-    diff = input('Difficulty: ').strip().capitalize()
+    diff = input('Difficulty: ').strip()
     ext = input('File extension: ').strip().lower()
-    addEntry(int(num), name, diff, ext)
+    addEntry(int(num), name, getDifficultyString(diff), ext)
