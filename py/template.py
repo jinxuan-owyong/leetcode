@@ -1,5 +1,10 @@
 
+from utils import chunk
+
 if __name__ == "__main__":
-    puzzles = []
-    for puzzle in puzzles:
+    testSize = 1
+    puzzles = [
+
+    ]
+    for puzzle in chunk(puzzles, testSize):
         print(Solution())

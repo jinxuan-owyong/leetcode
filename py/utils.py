@@ -1,6 +1,15 @@
 from classes import Node, ListNode, TreeNode
-from typing import Optional, List
+from typing import Optional, List, Generator
 from collections import deque
+
+
+def chunk(original: List[int], size: int) -> Generator[List[int], None, None]:
+    if len(original) % size != 0:
+        raise ValueError("Input data length is invalid")
+    rows = len(original) // size
+    for i in range(rows):
+        start = i * size
+        yield original[start:start+size]
 
 
 def toGraph(adjList: List) -> Node:

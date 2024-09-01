@@ -1,5 +1,6 @@
 # 2022. Convert 1D Array Into 2D Array
 
+from utils import chunk
 from typing import List
 
 
@@ -15,12 +16,20 @@ class Solution:
 
 
 if __name__ == "__main__":
-    numInputsPerTestcase = 3
+    testSize = 3
     puzzles = [
-        ([1, 2, 3, 4], 2, 2),
-        ([1, 2, 3], 1, 3),
-        ([1, 2], 1, 1),
-        ([1, 2, 3, 4], 2, 3)
+        [1, 2, 3, 4],
+        2,
+        2,
+        [1, 2, 3],
+        1,
+        3,
+        [1, 2],
+        1,
+        1,
+        [1, 2, 3, 4],
+        2,
+        3,
     ]
-    for puzzle in puzzles:
+    for puzzle in chunk(puzzles, testSize):
         print(Solution().construct2DArray(*puzzle))
