@@ -79,8 +79,11 @@ def addEntry(num, name, diff, ext):
                     f1.write(f'# {num}. {name}\n')
                     f1.writelines(lines)
         case "js":
-            with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                f1.write(f'// {num}. {name}\n')
+            with open("js/template.js") as f:
+                lines = f.readlines()
+                with open(f'{ext}/{problemFileName}', 'w+') as f1:
+                    f1.write(f'// {num}. {name}\n')
+                    f1.writelines(lines)
         case "sql":
             with open(f'{ext}/{problemFileName}', 'w+') as f1:
                 f1.write(f'-- {num}. {name}\n')
