@@ -54,7 +54,7 @@ def addEntry(num, name, diff, ext):
 
     with open(f'./{FILE_NAME}', 'w') as f:
         def getEntryID(line: str) -> int:
-            return int(re.search('(?<=(\| ))\d{1,4}', line).group(0))
+            return int(re.search(r'(?<=(\| ))\d{1,4}', line).group(0))
 
         try:
             insertIdx = bisect.bisect_left(lines,
