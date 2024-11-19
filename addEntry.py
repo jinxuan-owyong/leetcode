@@ -44,10 +44,11 @@ def getDifficultyString(diff: str) -> str:
             raise Exception("Invalid difficulty")
 
 
-def addEntry(num, name, diff, ext):
-    FILE_NAME = 'README.md'
+def addEntry(num, name, diff, ext, createTemplate = True):
+    fileType = fileExtensionToName(ext)
+    FILE_NAME = f'{ext}/README.md'
     # 0-based index
-    ENTRIES_BEGIN = 6
+    ENTRIES_BEGIN = 4
 
     with open(f'./{FILE_NAME}', 'r') as f:
         lines = [line for line in f]
@@ -63,30 +64,31 @@ def addEntry(num, name, diff, ext):
                                            lo=ENTRIES_BEGIN)
 
             # assumption: file is properly formatted
-            newline = f'| {num} | [{name}]({problemNameToURL(name)}) | [{fileExtensionToName(ext)}](https://github.com/jinxuan-owyong/leetcode/blob/master/{ext}/{num:04}_{problemNameToFileName(name)}.{ext}) | {diff} |\n'
+            problemFileName = f'{num:04}_{problemNameToFileName(name)}.{ext}'
+            newline = f'| {num} | [{name}]({problemNameToURL(name)}) | [{problemFileName}](https://github.com/jinxuan-owyong/leetcode/blob/master/{ext}/{num:04}_{problemNameToFileName(name)}.{ext}) | {diff} |\n'
             lines.insert(insertIdx, newline)
 
         finally:
-            problemFileName = f'{num:04}_{problemNameToFileName(name)}.{ext}'
             f.write(''.join(lines))
 
-    match ext:
-        case "py":
-            # copy template file
-            with open("py/template.py") as f:
-                lines = f.readlines()
+    if createTemplate:
+        match ext:
+            case "py":
+                # copy template file
+                with open("py/template.py") as f:
+                    lines = f.readlines()
+                    with open(f'{ext}/{problemFileName}', 'w+') as f1:
+                        f1.write(f'# {num}. {name}\n')
+                        f1.writelines(lines)
+            case "js":
+                with open("js/template.js") as f:
+                    lines = f.readlines()
+                    with open(f'{ext}/{problemFileName}', 'w+') as f1:
+                        f1.write(f'// {num}. {name}\n')
+                        f1.writelines(lines)
+            case "sql":
                 with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                    f1.write(f'# {num}. {name}\n')
-                    f1.writelines(lines)
-        case "js":
-            with open("js/template.js") as f:
-                lines = f.readlines()
-                with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                    f1.write(f'// {num}. {name}\n')
-                    f1.writelines(lines)
-        case "sql":
-            with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                f1.write(f'-- {num}. {name}\n')
+                    f1.write(f'-- {num}. {name}\n')
 
 
 if __name__ == "__main__":
