@@ -1,5 +1,6 @@
 import re
 import bisect
+from typing import List
 
 
 def problemNameToFileName(s: str):
@@ -19,6 +20,8 @@ def fileExtensionToName(ext):
             return 'C++'
         case 'c':
             return 'C'
+        case 'go':
+            return 'Go'
         case 'py':
             return 'Python'
         case 'js':
@@ -44,7 +47,7 @@ def getDifficultyString(diff: str) -> str:
             raise Exception("Invalid difficulty")
 
 
-def addEntry(num, name, diff, ext, createTemplate = True):
+def addEntry(num, name, diff, ext, createTemplate=True):
     fileType = fileExtensionToName(ext)
     FILE_NAME = f'{ext}/README.md'
     # 0-based index
@@ -65,30 +68,32 @@ def addEntry(num, name, diff, ext, createTemplate = True):
 
             # assumption: file is properly formatted
             problemFileName = f'{num:04}_{problemNameToFileName(name)}.{ext}'
-            newline = f'| {num} | [{name}]({problemNameToURL(name)}) | [{problemFileName}](https://github.com/jinxuan-owyong/leetcode/blob/master/{ext}/{num:04}_{problemNameToFileName(name)}.{ext}) | {diff} |\n'
+            newline = f'| {num} | [{name}]({problemNameToURL(name)}) | [{
+                problemFileName}](https://github.com/jinxuan-owyong/leetcode/blob/master/{ext}/{num:04}_{problemNameToFileName(name)}.{ext}) | {diff} |\n'
             lines.insert(insertIdx, newline)
 
         finally:
             f.write(''.join(lines))
 
     if createTemplate:
-        match ext:
-            case "py":
-                # copy template file
-                with open("py/template.py") as f:
-                    lines = f.readlines()
-                    with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                        f1.write(f'# {num}. {name}\n')
-                        f1.writelines(lines)
-            case "js":
-                with open("js/template.js") as f:
-                    lines = f.readlines()
-                    with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                        f1.write(f'// {num}. {name}\n')
-                        f1.writelines(lines)
-            case "sql":
-                with open(f'{ext}/{problemFileName}', 'w+') as f1:
-                    f1.write(f'-- {num}. {name}\n')
+        commentDelimiter = {"py": "#",
+                            "js": "//",
+                            "sql": "--",
+                            "go": "//"}
+
+        targetPath = f'{ext}/{problemFileName}'
+        comment = f'{commentDelimiter[ext]} {num}. {name}'
+        lines = []
+
+        # copy template file
+        if ext in ("py", "js", "go"):
+            with open(f"{ext}/template.{ext}") as f:
+                lines = f.readlines()
+
+        with open(targetPath, 'w+') as f1:
+            f1.write(f'{comment}\n\n')
+            if lines:
+                f1.writelines(lines)
 
 
 if __name__ == "__main__":
