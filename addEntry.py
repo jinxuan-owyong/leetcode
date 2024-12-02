@@ -1,6 +1,7 @@
 import re
 import bisect
 from typing import List
+import os
 
 
 def problemNameToFileName(s: str):
@@ -68,8 +69,16 @@ def addEntry(num, name, diff, ext, createTemplate=True):
 
             # assumption: file is properly formatted
             problemFileName = f'{num:04}_{problemNameToFileName(name)}.{ext}'
+            if ext == 'go':
+                pathToFile = f'{ext}/{num:04}/{problemFileName}'
+            else:
+                pathToFile = f'{ext}/{problemFileName}'
+
+            githubFileUrl = f'https://github.com/jinxuan-owyong/leetcode/blob/master/{
+                pathToFile}'
+
             newline = f'| {num} | [{name}]({problemNameToURL(name)}) | [{
-                problemFileName}](https://github.com/jinxuan-owyong/leetcode/blob/master/{ext}/{num:04}_{problemNameToFileName(name)}.{ext}) | {diff} |\n'
+                problemFileName}]({githubFileUrl}) | {diff} |\n'
             lines.insert(insertIdx, newline)
 
         finally:
@@ -81,7 +90,6 @@ def addEntry(num, name, diff, ext, createTemplate=True):
                             "sql": "--",
                             "go": "//"}
 
-        targetPath = f'{ext}/{problemFileName}'
         comment = f'{commentDelimiter[ext]} {num}. {name}'
         lines = []
 
@@ -90,7 +98,11 @@ def addEntry(num, name, diff, ext, createTemplate=True):
             with open(f"{ext}/template.{ext}") as f:
                 lines = f.readlines()
 
-        with open(targetPath, 'w+') as f1:
+        fileDir = pathToFile[:pathToFile.rfind('/')]
+        if not os.path.exists(fileDir):
+            os.mkdir(fileDir)
+
+        with open(pathToFile, 'w+') as f1:
             f1.write(f'{comment}\n\n')
             if lines:
                 f1.writelines(lines)
