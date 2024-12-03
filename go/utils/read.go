@@ -2,7 +2,6 @@ package utils
 
 import (
 	"bufio"
-	"strconv"
 )
 
 func ReadInt(scanner *bufio.Scanner) int {
@@ -10,11 +9,7 @@ func ReadInt(scanner *bufio.Scanner) int {
 		panic("Failed to read input")
 	}
 	line := scanner.Text()
-	num, err := strconv.Atoi(line)
-	if err != nil {
-		panic(err)
-	}
-	return num
+	return ParseInt(line)
 }
 
 func ReadString(scanner *bufio.Scanner, stripQuotes bool) string {
