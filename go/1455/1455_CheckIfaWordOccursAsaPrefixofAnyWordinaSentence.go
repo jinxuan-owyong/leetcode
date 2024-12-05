@@ -31,8 +31,8 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	n := utils.ReadInt(scanner)
 	for range n {
-		arg1 := utils.ReadString(scanner, true)
-		arg2 := utils.ReadString(scanner, true)
+		arg1 := utils.ReadString(scanner)
+		arg2 := utils.ReadString(scanner)
 		result := isPrefixOfWord(arg1, arg2)
 		fmt.Println(result)
 	}

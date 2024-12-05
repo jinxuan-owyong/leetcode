@@ -12,13 +12,10 @@ func ReadInt(scanner *bufio.Scanner) int {
 	return ParseInt(line)
 }
 
-func ReadString(scanner *bufio.Scanner, stripQuotes bool) string {
+func ReadString(scanner *bufio.Scanner) string {
 	if !scanner.Scan() {
 		panic("Failed to read input")
 	}
 	line := scanner.Text()
-	if stripQuotes {
-		return line[1 : len(line)-1]
-	}
-	return line
+	return line[1 : len(line)-1]
 }

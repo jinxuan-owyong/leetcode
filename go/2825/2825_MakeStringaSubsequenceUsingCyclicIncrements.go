@@ -38,8 +38,8 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	n := utils.ReadInt(scanner)
 	for range n {
-		s1 := utils.ReadString(scanner, true)
-		s2 := utils.ReadString(scanner, true)
+		s1 := utils.ReadString(scanner)
+		s2 := utils.ReadString(scanner)
 		result := canMakeSubsequence(s1, s2)
 		fmt.Println(result)
 	}

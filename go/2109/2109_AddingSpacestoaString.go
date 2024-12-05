@@ -39,8 +39,8 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	n := utils.ReadInt(scanner)
 	for range n {
-		s := utils.ReadString(scanner, true)
-		spaces := utils.ParseArrInt(utils.ReadString(scanner, true), ",")
+		s := utils.ReadString(scanner)
+		spaces := utils.ParseArrInt(utils.ReadString(scanner), ",")
 		result := addSpaces(s, spaces)
 		fmt.Println(result)
 	}
