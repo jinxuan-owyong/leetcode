@@ -16,9 +16,8 @@ func main() {
 	for scanner.Scan() {
 		lines = append(lines, scanner.Text())
 	}
-	inputs := lo.Chunk(lines, testSize)
 
-	for i := range len(inputs) / testSize {
+	for _, test := range lo.Chunk(lines, testSize) {
 		result := 0
 		fmt.Println(result)
 	}
