@@ -77,22 +77,6 @@ def toTree(nodes: List[int]) -> Optional[TreeNode]:
             if kids:
                 node.right = kids.pop()
     return root
-    # root = TreeNode(nodes[0])
-    # curr: deque[TreeNode] = deque()
-    # next: deque[TreeNode] = deque()
-    # curr.append(root)
-    # for x in nodes[1:]:
-    #     if len(curr) == 0:
-    #         curr = next
-    #         next = deque()
-    #     if not curr[0].left:
-    #         curr[0].left = TreeNode(x)
-    #         next.append(curr[0].left)
-    #     elif not curr[0].right:
-    #         curr[0].right = TreeNode(x)
-    #         next.append(curr[0].right)
-    #         curr.popleft()
-    # return root
 
 
 def printTree(node: Optional[TreeNode]):
