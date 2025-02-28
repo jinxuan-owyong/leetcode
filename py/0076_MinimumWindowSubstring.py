@@ -1,6 +1,6 @@
 # 76. Minimum Window Substring
 
-from collections import Counter, defaultdict
+from collections import Counter
 
 
 class Solution:
@@ -9,36 +9,38 @@ class Solution:
             return ""
 
         required = Counter(t)
-        window = defaultdict(lambda: 0)
+        window = {}
+        # number of characters in window that fulfil window[ch] >= required[ch]
+        curr = 0
 
-        # count refers to the number of groups of characters that the
-        # requirement has been fulfilled (not number of characters!)
-        currCount = 0
-        requiredCount = len(required)
-        substring = ""
+        result = ""
+        resultLength = float("inf")
 
         i = 0
-        for j, ch in enumerate(s):
-            if ch in required:
-                window[ch] += 1
+        for j in range(len(s)):
+            window[s[j]] = window.get(s[j], 0) + 1
 
-                # only update if all groups of characters is met
-                if required[ch] == window[ch]:
-                    currCount += 1
+            if window[s[j]] == required[s[j]]:
+                curr += 1  # this will only be incremented once when the character meets the requirement
 
-            while currCount == requiredCount:
-                if window[ch] == required[ch] and (not substring or (j - i + 1) < len(substring)):
-                    substring = s[i:j+1]
-
-                if s[i] in required:
-                    # if removal of s[i] results in the requirement being unmet
-                    if required[s[i]] == window[s[i]]:
-                        currCount -= 1
+            if curr == len(required):
+                # if beginning of window is irrelevant
+                while i < j and window[s[i]] > required[s[i]]:
                     window[s[i]] -= 1
+                    i += 1
 
-                i += 1
+                if j-i+1 < resultLength:
+                    result, resultLength = s[i:j+1], j-i+1
 
-        return substring
+                # when the window meets the substring requirements, then there is no incentive to
+                # futher grow the window. instead, shrink the window until it is invalid
+                while i < j and curr == len(required):
+                    window[s[i]] -= 1
+                    if s[i] in required and window[s[i]] < required[s[i]]:
+                        curr -= 1
+                    i += 1
+
+        return result
 
 
 if __name__ == "__main__":
@@ -46,23 +48,8 @@ if __name__ == "__main__":
         ("ADOBECODEBANC", "ABC"),
         ("a", "a"),
         ("a", "aa"),
+        ("ab", "b"),
         ("aaaaaaaaaaaabbbbbcdd", "abcdd")
     ]
     for puzzle in puzzles:
         print(Solution().minWindow(*puzzle))
-
-"""
-Runtime
-182
-ms
-Beats
-23.59%
-of users with Python3
-Memory
-17.30
-MB
-Beats
-37.49%
-of users with Python3
-26*
-"""
