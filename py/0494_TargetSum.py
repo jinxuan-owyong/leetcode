@@ -1,28 +1,45 @@
 # 494. Target Sum
 
 from typing import List
+from collections import defaultdict
 
 
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
-        seen = {}
+        """
+        dp[i] is the ways to add/subtract all elements from nums[:i+1]
+        then number of ways to reach a sum j is based on the preceding cell(s) that can reach dp[i][j]
+        """
+        dp = [defaultdict(int) for _ in range(len(nums)+1)]
+        dp[0][0] = 1
+        for i, n in enumerate(nums):
+            for j in list(dp[i].keys()):
+                if dp[i][j] > 0:
+                    dp[i+1][j+n] += dp[i][j]
+                    dp[i+1][j-n] += dp[i][j]
+        return dp[-1][target]
 
-        def knapsack(idx: List[int], total: int):
-            if (idx, total) in seen:
-                return seen[(idx, total)]
+# top-down with memoisation
+# class Solution:
+#     def findTargetSumWays(self, nums: List[int], target: int) -> int:
+#         seen = {}
 
-            if idx == -1:
-                return 1 if total == target else 0
+#         def knapsack(idx: List[int], total: int):
+#             if (idx, total) in seen:
+#                 return seen[(idx, total)]
 
-            add = knapsack(idx - 1, total + nums[idx])
-            seen[(idx - 1, total + nums[idx])] = add
+#             if idx == -1:
+#                 return 1 if total == target else 0
 
-            subtract = knapsack(idx - 1, total - nums[idx])
-            seen[(idx - 1, total - nums[idx])] = subtract
+#             add = knapsack(idx - 1, total + nums[idx])
+#             seen[(idx - 1, total + nums[idx])] = add
 
-            return add + subtract
+#             subtract = knapsack(idx - 1, total - nums[idx])
+#             seen[(idx - 1, total - nums[idx])] = subtract
 
-        return knapsack(len(nums) - 1, 0)
+#             return add + subtract
+
+#         return knapsack(len(nums) - 1, 0)
 
 
 if __name__ == "__main__":
@@ -34,19 +51,3 @@ if __name__ == "__main__":
     ]
     for puzzle in puzzles:
         print(Solution().findTargetSumWays(*puzzle))
-
-"""
-Runtime
-266
-ms
-Beats
-13.75%
-of users with Python3
-Memory
-40.60
-MB
-Beats
-13.68%
-of users with Python3
-17
-"""
