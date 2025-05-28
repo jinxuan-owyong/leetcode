@@ -18,3 +18,8 @@ class TreeNode:
         self.val = val
         self.left = left
         self.right = right
+
+class Interval(object):
+    def __init__(self, start, end):
+        self.start = start
+        self.end = end
