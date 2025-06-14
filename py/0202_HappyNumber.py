@@ -1,37 +1,22 @@
 # 202. Happy Number
 
+from utils import chunk
+
+
 class Solution:
     def isHappy(self, n: int) -> bool:
-        curr, temp = n, 0
-        seen = set()
-        while True:
-            if curr == 1:
-                return True
-            if curr in seen:
-                return False
-            seen.add(curr)
-            for d in str(curr):
-                temp += int(d) ** 2
-            curr, temp = temp, 0
+        visited = set()
+        while n > 1 and n not in visited:
+            visited.add(n)
+            # alternatively use %10 and //= 10 on a temporary variable
+            n = sum(map(lambda x: int(x)**2, str(n)))
+        return n == 1
 
 
 if __name__ == "__main__":
-    puzzles = [19, 2, 1, 2147483647]
-    for puzzle in puzzles:
-        print(Solution().isHappy(puzzle))
-
-"""
-Runtime
-32
-ms
-Beats
-84.73%
-of users with Python3
-Memory
-16.50
-MB
-Beats
-80.61%
-of users with Python3
-6
-"""
+    testSize = 1
+    puzzles = [
+        19, 2, 100, 101
+    ]
+    for puzzle in chunk(puzzles, testSize):
+        print(Solution().isHappy(*puzzle))
