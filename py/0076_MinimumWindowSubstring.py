@@ -1,44 +1,46 @@
 # 76. Minimum Window Substring
 
-from collections import Counter
+from collections import Counter, defaultdict
 
 
 class Solution:
     def minWindow(self, s: str, t: str) -> str:
-        if s == "":
+        """
+        keep track of number of matched characters when expanding the window
+        each time all characters match, we shrink the window until the window is invalid
+
+        OUZODYXAZV 
+        -> OUZODYX expand
+        ->    ODYX shrink further
+        -> ODYXAZ  expand
+        ->   YXAZ  shrink
+        """
+        if len(s) < len(t):
             return ""
 
         required = Counter(t)
-        window = {}
-        # number of characters in window that fulfil window[ch] >= required[ch]
-        curr = 0
-
-        result = ""
-        resultLength = float("inf")
+        window = defaultdict(int)
+        matches = 0  # number of window[c] >= required[c]
 
         i = 0
+        result = ""
         for j in range(len(s)):
-            window[s[j]] = window.get(s[j], 0) + 1
-
+            window[s[j]] += 1
+            # as we expand the window, we will "pass by" the required value only once
+            # then keep track of number of characters that match the count to avoid repeated work
             if window[s[j]] == required[s[j]]:
-                curr += 1  # this will only be incremented once when the character meets the requirement
+                matches += 1
 
-            if curr == len(required):
-                # if beginning of window is irrelevant
-                while i < j and window[s[i]] > required[s[i]]:
-                    window[s[i]] -= 1
-                    i += 1
-
-                if j-i+1 < resultLength:
-                    result, resultLength = s[i:j+1], j-i+1
-
-                # when the window meets the substring requirements, then there is no incentive to
-                # futher grow the window. instead, shrink the window until it is invalid
-                while i < j and curr == len(required):
-                    window[s[i]] -= 1
-                    if s[i] in required and window[s[i]] < required[s[i]]:
-                        curr -= 1
-                    i += 1
+            # expand window until we have all matching characters
+            while i <= j and matches == len(required):
+                # as we shrink the window, keep track of the shortest substring
+                # invariant: s[i:j+1] meets the character requirement of t
+                if not result or j-i+1 < len(result):
+                    result = s[i:j+1]
+                if window[s[i]] == required[s[i]]:
+                    matches -= 1
+                window[s[i]] -= 1
+                i += 1
 
         return result
 
